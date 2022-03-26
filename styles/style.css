@@ -1,0 +1,135 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+:root {
+  --sage-green-: #9ca89e;
+  --baby-blue-: #cadedf;
+  --blue-green-: #76c1ec;
+  --back-block-: #886f6f;
+  --back-cell-: #c1a3a3;
+  --pink-: #f3c5c5;
+  --background-: #f3e7e7;
+  /* --cell-size-: 20vmin;
+  --cell-gap-: 2vmin;
+  --cell-repeat-: 4; */
+}
+
+body {
+  background-color: var(--background-);
+  font-size: 8vmin;
+  font-weight: 500;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg {
+  width: 100%;
+  background-color: var(--background-);
+  font-size: 8vmin;
+  font-weight: 500;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameBlock {
+  background: var(--back-block-);
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--cell-repeat-), var(--cell-size-));
+  grid-template-rows: repeat(var(--cell-repeat-), var(--cell-size-));
+  padding: var(--cell-gap-);
+  gap: var(--cell-gap-);
+  border-radius: 1vmin;
+  z-index: 3;
+}
+
+.cells {
+  background: var(--back-cell-);
+  border-radius: 1vmin;
+}
+
+.tile {
+  /* --x-: 2;
+  --y-: 3;
+  --tile-brightness-: 80%;
+  --text-brightness-: 20%; */
+  position: absolute;
+  width: var(--cell-size-);
+  height: var(--cell-size-);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(339, 80%, var(--tile-brightness-));
+  color: hsl(339, 80%, var(--text-brightness-));
+  font-weight: bold;
+  border-radius: 1vmin;
+  top: calc(
+    var(--y-) * (var(--cell-size-) + var(--cell-gap-)) + var(--cell-gap-)
+  );
+  left: calc(
+    var(--x-) * (var(--cell-size-) + var(--cell-gap-)) + var(--cell-gap-)
+  );
+  animation: show 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.mainBlock {
+  position: absolute;
+  z-index: 1;
+  top: 12vmin;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1vmin;
+}
+
+.first {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25vmin;
+}
+
+.first h1 {
+  font-size: 12vmin;
+  color: #3d3333;
+}
+
+.first p {
+  width: max-content;
+  font-size: 6vmin;
+  font-weight: 500;
+  color: #4b3e3e;
+}
+
+.first p span {
+  color: #3d3333;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.second p {
+  font-size: 7vmin;
+  color: #4b3e3e;
+}
+
+.second p span {
+  color: #3d3333;
+  font-weight: bold;
+}
