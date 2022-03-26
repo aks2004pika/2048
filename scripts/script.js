@@ -10,9 +10,9 @@ grid.randomNewCell().tile = new Tile(gameBlock);
 
 var startingX, startingY, movingX, movingY;
 
-gameBlock.addEventListener("touchstart", touchStart, { once: true });
-gameBlock.addEventListener("touchmove", touchMove, { once: true });
-gameBlock.addEventListener("touchend", touchEnd, { once: true });
+gameBlock.addEventListener("touchstart", touchStart);
+gameBlock.addEventListener("touchmove", touchMove);
+gameBlock.addEventListener("touchend", touchEnd);
 
 function touchStart(e) {
   startingX = e.touches[0].clientX;
@@ -37,6 +37,8 @@ function touchEnd(e) {
     return "up";
   }
 }
+
+onSwipe(touchEnd());
 
 function onSwipe(direction) {
   async function swipe(direction) {
