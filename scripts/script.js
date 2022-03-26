@@ -8,6 +8,74 @@ setupInput();
 grid.randomNewCell().tile = new Tile(gameBlock);
 grid.randomNewCell().tile = new Tile(gameBlock);
 
+var startingX, startingY, movingX, movingY;
+
+gameBlock.addEventListener("touchstart", touchStart, { once: true });
+gameBlock.addEventListener("touchmove", touchMove, { once: true });
+gameBlock.addEventListener("touchend", touchEnd, { once: true });
+
+function touchStart(e) {
+  startingX = e.touches[0].clientX;
+  startingY = e.touches[0].clientY;
+}
+
+function touchMove(e) {
+  movingX = e.touches[0].clientX;
+  movingY = e.touches[0].clientY;
+}
+
+function touchEnd(e) {
+  if (startingX + 60 < movingX) {
+    return "right";
+  } else if (startingX - 60 > movingX) {
+    return "left";
+  }
+
+  if (startingY + 60 < movingY) {
+    return "down";
+  } else if (startingY - 60 > movingY) {
+    return "up";
+  }
+}
+
+function onSwipe(direction) {
+  async function swipe(direction) {
+    switch (direction) {
+      case "up":
+        if (!canMoveUp()) {
+          setupInput();
+          return;
+        }
+        await moveUp();
+        break;
+      case "down":
+        if (!canMoveDown()) {
+          setupInput();
+          return;
+        }
+        await moveDown();
+        break;
+      case "left":
+        if (!canMoveLeft()) {
+          setupInput();
+          return;
+        }
+        await moveLeft();
+        break;
+      case "right":
+        if (!canMoveRight()) {
+          setupInput();
+          return;
+        }
+        await moveRight();
+        break;
+      default:
+        setupInput();
+        return;
+    }
+  }
+}
+
 function setupInput() {
   window.addEventListener("keydown", handleInput, { once: true });
 }

@@ -89,6 +89,7 @@ body {
 }
 
 .mainBlock {
+  width: min(90%, 800px);
   position: absolute;
   z-index: 1;
   top: 12vmin;
@@ -103,7 +104,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 25vmin;
 }
 
 .first h1 {
