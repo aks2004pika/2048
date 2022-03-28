@@ -38,7 +38,9 @@ function touchEnd(e) {
   }
 }
 
-that(touchEnd());
+gameBlock.onclick = () => {
+  that(touchEnd());
+};
 
 function that(direction) {
   switch (direction) {
