@@ -77,6 +77,20 @@ async function swipe(direction) {
       swipeEvents();
       return;
   }
+
+  grid.cells.forEach((cell) => cell.mergeTiles());
+
+  const newTile = new Tile(gameBlock);
+  grid.randomNewCell().tile = newTile;
+
+  if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
+    newTile.waitForTransition(true).then(() => {
+      alert("You lose");
+    });
+    return;
+  }
+
+  setupInput();
 }
 
 function setupInput() {
