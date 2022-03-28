@@ -85,7 +85,7 @@ async function swipe(direction) {
 
   if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
     newTile.waitForTransition(true).then(() => {
-      alert("You lose");
+      loseBlock();
     });
     return;
   }
