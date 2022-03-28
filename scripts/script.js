@@ -7,7 +7,7 @@ setupInput();
 
 grid.randomNewCell().tile = new Tile(gameBlock);
 grid.randomNewCell().tile = new Tile(gameBlock);
-
+swipeEvents();
 var startingX, startingY, movingX, movingY;
 
 function swipeEvents() {
