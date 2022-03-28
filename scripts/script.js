@@ -12,7 +12,7 @@ var startingX, startingY, movingX, movingY;
 
 gameBlock.addEventListener("touchstart", touchStart);
 gameBlock.addEventListener("touchmove", touchMove);
-gameBlock.addEventListener("touchend", touchEnd);
+gameBlock.addEventListener("touchend", touchEnd, { once: true });
 
 function touchStart(e) {
   startingX = e.touches[0].clientX;
