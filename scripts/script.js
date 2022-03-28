@@ -25,18 +25,19 @@ function touchMove(e) {
 }
 
 function touchEnd(e) {
+  var swipeDirection;
   if (startingX + 60 < movingX) {
-    return "right";
+    swipeDirection = "right";
   } else if (startingX - 60 > movingX) {
-    return "left";
+    swipeDirection = "left";
   }
 
   if (startingY + 60 < movingY) {
-    return "down";
+    swipeDirection = "down";
   } else if (startingY - 60 > movingY) {
-    return "up";
+    swipeDirection = "up";
   }
-  swipe(touchEnd());
+  swipe(swipeDirection);
 }
 
 async function swipe(direction) {
