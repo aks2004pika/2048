@@ -26,16 +26,16 @@ function touchMove(e) {
 
 function touchEnd(e) {
   if (startingX + 60 < movingX) {
-    alert ("right");
+    alert("right");
   } else if (startingX - 60 > movingX) {
-    alert ("left";)
+    alert("left");
   }
 
   if (startingY + 60 < movingY) {
-    alert ("down";)
+    alert("down");
   } else if (startingY - 60 > movingY) {
-    alert ("up";
- ) }
+    alert("up");
+  }
 }
 
 // swipe(touchEnd());
