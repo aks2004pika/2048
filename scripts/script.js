@@ -43,6 +43,7 @@ function touchEnd(e) {
 }
 
 async function swipe(direction) {
+  console.log(direction);
   switch (direction) {
     case "up":
       if (!canMoveUp()) {
