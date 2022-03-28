@@ -20,7 +20,7 @@
 
 body {
   background-color: var(--background-);
-  font-size: 8vmin;
+  font-size: 15px;
   font-weight: 500;
   height: 100%;
   display: flex;
