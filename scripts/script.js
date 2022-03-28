@@ -36,22 +36,8 @@ function touchEnd(e) {
   } else if (startingY - 60 > movingY) {
     return "up";
   }
+  swipe(touchEnd());
 }
-
-gameBlock.onclick = () => {
-  that(touchEnd());
-};
-
-function that(direction) {
-  switch (direction) {
-    case "up":
-      console.log("up");
-    default:
-      console.log("anything but up");
-  }
-}
-
-// swipe(touchEnd());
 
 async function swipe(direction) {
   switch (direction) {
