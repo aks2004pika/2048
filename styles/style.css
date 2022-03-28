@@ -22,7 +22,7 @@ body {
   background-color: var(--background-);
   font-size: 8vmin;
   font-weight: 500;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
