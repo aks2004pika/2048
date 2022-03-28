@@ -39,6 +39,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .gameBlock {
@@ -52,6 +53,43 @@ body {
   border-radius: 1vmin;
   z-index: 3;
   overflow: hidden;
+  transform: scale(1);
+}
+
+@keyframes gameBlockAnim {
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.loseBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0 0 0 0;
+  background: #c1a3a379;
+  z-index: 5;
+  opacity: 0;
+  transform: scale(0);
+}
+
+.loseBlock p {
+  font-size: 2rem;
+  font-weight: 500;
+  word-spacing: 2px;
+  letter-spacing: 3px;
+  color: #3d3333;
+}
+
+@keyframes loseAnim {
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .cells {
@@ -145,6 +183,9 @@ body {
   border-radius: 6px;
   box-shadow: -5px 30px 30px #3d33336b;
   transform: translateY(30px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   opacity: 0;
   pointer-events: none;
 }
@@ -157,7 +198,7 @@ body {
 }
 
 .rulesBlock ul {
-  padding: 2px 10px 15px 32px;
+  padding: 2px 10px 10px 32px;
 }
 
 .rulesBlock ul li {
@@ -165,6 +206,18 @@ body {
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 10px;
+}
+
+.playBtn {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  padding: 0.3em 0.8em;
+  border: 3px solid #3d3333;
+  background: var(--back-block-);
+  border-radius: 5px;
+  color: #3d3333;
+  margin-bottom: 15px;
+  cursor: pointer;
 }
 
 @keyframes rulesOpenAnim {
@@ -191,4 +244,50 @@ body {
     opacity: 0;
     pointer-events: none;
   }
+}
+
+@keyframes rulesCloseAnim {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+    cursor: pointer;
+  }
+  40% {
+    transform: translateY(-10px);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  100% {
+    transform: translateY(30px);
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+@keyframes gameOpenAnim {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+    pointer-events: none;
+  }
+  80% {
+    transform: translateY(-10px);
+    opacity: 0.9;
+    pointer-events: none;
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+    pointer-events: all;
+    cursor: default;
+  }
+}
+
+.restart {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background: #3d3333;
 }

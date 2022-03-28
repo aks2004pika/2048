@@ -139,7 +139,7 @@ async function handleInput(e) {
 
   if (!canMoveUp() && !canMoveDown() && !canMoveLeft() && !canMoveRight()) {
     newTile.waitForTransition(true).then(() => {
-      alert("You lose");
+      loseBlock();
     });
     return;
   }
@@ -238,3 +238,36 @@ function rulesOpen() {
 }
 
 rulesOpen();
+
+function loseBlock() {
+  const loseBlock = document.querySelector(".loseBlock");
+  const gameBlockAnim = {
+    animation: "gameBlockAnim 0.5s ease-in-out .2s forwards",
+  };
+  const loseAnim = {
+    animation: "loseAnim 0.5s ease-in-out .6s forwards",
+  };
+
+  Object.assign(gameBlock.style, gameBlockAnim);
+  Object.assign(loseBlock.style, loseAnim);
+}
+
+function play() {
+  const playBtn = document.querySelector(".playBtn");
+  const rulesBlock = document.querySelector(".rulesBlock");
+
+  const rulesCloseAnim = {
+    animation: "rulesCloseAnim 0.4s ease-in-out forwards",
+  };
+
+  const gameOpenAnim = {
+    animation: "gameOpenAnim 1s ease-in-out forwards",
+  };
+
+  playBtn.onclick = () => {
+    Object.assign(rulesBlock.style, rulesCloseAnim);
+    Object.assign(gameBlock.style, gameOpenAnim);
+  };
+}
+
+play();
