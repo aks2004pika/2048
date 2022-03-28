@@ -26,15 +26,26 @@ function touchMove(e) {
 
 function touchEnd(e) {
   if (startingX + 60 < movingX) {
-    alert("right");
+    return "right";
   } else if (startingX - 60 > movingX) {
-    alert("left");
+    return "left";
   }
 
   if (startingY + 60 < movingY) {
-    alert("down");
+    return "down";
   } else if (startingY - 60 > movingY) {
-    alert("up");
+    return "up";
+  }
+}
+
+that(touchEnd());
+
+function that(direction) {
+  switch (direction) {
+    case "up":
+      console.log("up");
+    default:
+      console.log("anything but up");
   }
 }
 
