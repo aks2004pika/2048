@@ -1,12 +1,12 @@
-const cellSize = 20;
-const cellGap = 2;
+const cellSize = 70;
+const cellGap = 6;
 const cellRepeat = 4;
 
 export default class Grid {
   #cells;
   constructor(gridElement) {
-    gridElement.style.setProperty("--cell-size-", `${cellSize}vmin`);
-    gridElement.style.setProperty("--cell-gap-", `${cellGap}vmin`);
+    gridElement.style.setProperty("--cell-size-", `${cellSize}px`);
+    gridElement.style.setProperty("--cell-gap-", `${cellGap}px`);
     gridElement.style.setProperty("--cell-repeat-", cellRepeat);
     this.#cells = createCellElement(gridElement).map((cellElement, index) => {
       return new Cells(

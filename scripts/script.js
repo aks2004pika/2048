@@ -218,3 +218,23 @@ function canMove(cells) {
     });
   });
 }
+
+function rulesOpen() {
+  const rulesBlock = document.querySelector(".rulesBlock");
+  const rulesBtn = document.querySelector(".rulesBtn");
+
+  const rulesOpenAnim = {
+    animation: "rulesOpenAnim 0.5s ease-in-out .5s forwards",
+  };
+
+  const gameCloseAnim = {
+    animation: "gameCloseAnim 0.4s ease-in-out forwards",
+  };
+
+  rulesBtn.onclick = () => {
+    Object.assign(gameBlock.style, gameCloseAnim);
+    Object.assign(rulesBlock.style, rulesOpenAnim);
+  };
+}
+
+rulesOpen();
