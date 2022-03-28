@@ -26,55 +26,53 @@ function touchMove(e) {
 
 function touchEnd(e) {
   if (startingX + 60 < movingX) {
-    return "right";
+    alert ("right");
   } else if (startingX - 60 > movingX) {
-    return "left";
+    alert ("left";)
   }
 
   if (startingY + 60 < movingY) {
-    return "down";
+    alert ("down";)
   } else if (startingY - 60 > movingY) {
-    return "up";
-  }
+    alert ("up";
+ ) }
 }
 
-onSwipe(touchEnd());
+// swipe(touchEnd());
 
-function onSwipe(direction) {
-  async function swipe(direction) {
-    switch (direction) {
-      case "up":
-        if (!canMoveUp()) {
-          setupInput();
-          return;
-        }
-        await moveUp();
-        break;
-      case "down":
-        if (!canMoveDown()) {
-          setupInput();
-          return;
-        }
-        await moveDown();
-        break;
-      case "left":
-        if (!canMoveLeft()) {
-          setupInput();
-          return;
-        }
-        await moveLeft();
-        break;
-      case "right":
-        if (!canMoveRight()) {
-          setupInput();
-          return;
-        }
-        await moveRight();
-        break;
-      default:
+async function swipe(direction) {
+  switch (direction) {
+    case "up":
+      if (!canMoveUp()) {
         setupInput();
         return;
-    }
+      }
+      await moveUp();
+      break;
+    case "down":
+      if (!canMoveDown()) {
+        setupInput();
+        return;
+      }
+      await moveDown();
+      break;
+    case "left":
+      if (!canMoveLeft()) {
+        setupInput();
+        return;
+      }
+      await moveLeft();
+      break;
+    case "right":
+      if (!canMoveRight()) {
+        setupInput();
+        return;
+      }
+      await moveRight();
+      break;
+    default:
+      setupInput();
+      return;
   }
 }
 
